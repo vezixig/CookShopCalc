@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #EEE;
+    padding: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+.shadow {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+
+.shadow > h1 {
+    background-color: lightsalmon;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px 10px 0 0;
+    font-size: 1.5em;
+
+}
+
+.shadow > table {
+}
