@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShoppingList } from './shoppinglist/shoppinglist.component';
@@ -10,15 +10,16 @@ import { AddProductComponent } from './products/add-product/add-product.componen
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ShoppingList,
-    LandingComponent,
     AddProductComponent,
+    AppComponent,
+    LandingComponent,
+    ShoppingList,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    BrowserModule,
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -25,5 +25,9 @@ export class ShoppingList {
     faTrash = faTrash;
     faCheck = faCheck;
     isListCollapsed = false;
-    
+    listFilter = '';
+
+    toggleList() {
+        this.isListCollapsed = !this.isListCollapsed;
+    }
 }

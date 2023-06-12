@@ -1,6 +1,7 @@
 <div class="card">
   <div class="card-header bg-primary text-white">Einkaufsliste</div>
-  <button>Collapse</button>
+  <button (click)="toggleList()">{{isListCollapsed ? 'Anzeigen' : 'Verstecken'}}</button>
+  <input type="text" [(ngModel)]="listFilter">
   <table class="table" *ngIf="!isListCollapsed">
     <thead>
       <tr>
