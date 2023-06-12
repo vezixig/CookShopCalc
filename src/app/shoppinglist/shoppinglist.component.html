@@ -1,36 +1,27 @@
-<div class="shadow">
-
-<h1>Einkaufsliste</h1>
-
-<table class="table">
+<div class="card">
+  <div class="card-header bg-primary text-white">Einkaufsliste</div>
+  <button>Collapse</button>
+  <table class="table" *ngIf="!isListCollapsed">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col"></th>
+        <th scope="col">Produkt</th>
+        <th scope="col">Menge</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+      <tr *ngFor="let item of items">
+        <td><img [width]="categoryImageWidth" src="../../assets/img/items/{{item.ItemType}}.png" title="{{item.ItemType}}"></td>
+        <th scope="row">{{item.Name}}</th>
+        <td>{{item.Amount}} {{item.Unit}}</td>
+        <td>
+          <Button class="btn btn-outline-success"><fa-icon [icon]="faCheck"></fa-icon></Button>
+          <Button class="btn btn-outline-danger"><fa-icon [icon]="faTrash"></fa-icon></Button>
+        </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
+    
     </tbody>
   </table>
-
+  <div clasS="card-footer">Es stehen {{items.length}} Einträge auf der Einkaufsliste</div>
 </div>
