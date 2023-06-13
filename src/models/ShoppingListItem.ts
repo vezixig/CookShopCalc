@@ -4,31 +4,41 @@ import { Item } from './Item';
 
 export class ShoppingListItem implements Item {
     private _amount: number = 0;
+    private _price: number = 0;
 
-    public Name: string;
-    public Unit: Unit;
-    public ItemType: ItemType;
+    public name: string;
+    public itemUnit: Unit;
+    public itemType: ItemType;
+    public priceUnit: Unit;
 
-    public constructor(
-        name: string,
-        amount: number,
-        unit: Unit,
-        itemType: ItemType
-    ) {
-        this.Amount = amount;
-        this.Name = name;
-        this.Unit = unit;
-        this.ItemType = itemType;
+    public constructor(name: string, amount: number, itemUnit: Unit, itemType: ItemType, price: number, priceUnit: Unit) {
+        this.amount = amount;
+        this.name = name;
+        this.itemUnit = itemUnit;
+        this.itemType = itemType;
+        this.price = price;
+        this.priceUnit = priceUnit;
     }
 
-    public get Amount() {
+    public get amount() {
         return this._amount;
     }
 
-    public set Amount(amount: number) {
+    public set amount(amount: number) {
         if (amount < 0) {
             amount = 0;
         }
         this._amount = amount;
+    }
+
+    public get price() {
+        return this._price;
+    }
+
+    public set price(price: number) {
+        if (price < 0) {
+            price = 0;
+        }
+        this._price = price;
     }
 }

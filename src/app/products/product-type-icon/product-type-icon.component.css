@@ -1,0 +1,12 @@
+:host {
+    display: block;
+}
+
+.productTypeContainer {
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 50%;
+    text-align: center;
+    aspect-ratio: 1 / 1;
+    margin: -3px;
+}

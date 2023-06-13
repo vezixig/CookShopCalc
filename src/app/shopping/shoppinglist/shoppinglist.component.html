@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="card-header bg-primary text-white">Einkaufsliste</div>
+    <button (click)="toggleList()">
+        {{ isListCollapsed ? "Anzeigen" : "Verstecken" }}
+    </button>
+    <input type="text" [(ngModel)]="listFilter" />
+    <table class="table" *ngIf="!isListCollapsed">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Produkt</th>
+                <th scope="col">Menge</th>
+                <th scope="col">Preis</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of filteredItems">
+                <td>
+                    <!-- <img
+                        [width]="categoryImageWidth"
+                        src="../../assets/img/items/{{ itemTypeUtils.ItemTypeToString(item.itemType) | lowercase }}.png"
+                        title="{{ itemTypeUtils.ItemTypeToDescription(item.itemType) }}"
+                    /> -->
+                    <csc-product-type-icon style="width: 24px; height: 24px" [itemType]="item.itemType"></csc-product-type-icon>
+                </td>
+                <th scope="row">{{ item.name }}</th>
+                <td>{{ item.amount }} {{ item.itemUnit }}</td>
+                <td>{{ item.price | currency }}</td>
+                <td>
+                    <Button class="btn btn-outline-success"><fa-icon [icon]="faCheck"></fa-icon></Button>
+                    <Button class="btn btn-outline-danger"><fa-icon [icon]="faTrash"></fa-icon></Button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div clasS="card-footer">Es stehen {{ items.length }} Einträge auf der Einkaufsliste</div>
+</div>
