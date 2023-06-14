@@ -1,0 +1,8 @@
+{
+    "products": [
+        { "id": 1, "name": "Banane", "itemUnit": 0, "itemType": 1, "price": 13.37, "priceUnit": 3 },
+        { "id": 2, "name": "Apfel", "itemUnit": 0, "itemType": 1, "price": 13.37, "priceUnit": 3 },
+        { "id": 3, "name": "Wassermelone", "itemUnit": 0, "itemType": 1, "price": 3.99, "priceUnit": 0 },
+        { "id": 3, "name": "Gurke", "itemUnit": 0, "itemType": 0, "price": 0.79, "priceUnit": 0 }
+    ]
+}

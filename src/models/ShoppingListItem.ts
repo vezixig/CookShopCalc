@@ -10,14 +10,20 @@ export class ShoppingListItem implements Item {
     public itemUnit: Unit;
     public itemType: ItemType;
     public priceUnit: Unit;
+    private _id: number;
 
-    public constructor(name: string, amount: number, itemUnit: Unit, itemType: ItemType, price: number, priceUnit: Unit) {
+    public constructor(id: number, name: string, amount: number, itemUnit: Unit, itemType: ItemType, price: number, priceUnit: Unit) {
+        this._id = id;
         this.amount = amount;
         this.name = name;
         this.itemUnit = itemUnit;
         this.itemType = itemType;
         this.price = price;
         this.priceUnit = priceUnit;
+    }
+
+    public get id() {
+        return this._id;
     }
 
     public get amount() {

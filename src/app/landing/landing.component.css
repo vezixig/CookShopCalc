@@ -13,14 +13,13 @@
     margin: 20px auto;
 }
 
-
-
 .csc-card > .card-footer {
     font-size: 0.7em;
 }
 
 .csc-card:hover {
     background-color: var(--bs-highlight-bg);
+    color: #333;
 }
 
 .csc-card:active {

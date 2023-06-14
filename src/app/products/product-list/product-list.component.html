@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-header bg-tertiary clearfix">
+        <div class="float-start">Produktliste</div>
+        <a routerLink="/product/add" type="button" class="btn btn-sm btn-outline-primary float-end">+ NEU</a>
+    </div>
+    <input type="text" [(ngModel)]="listFilter" />
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Produkt</th>
+                <th scope="col">Einheit</th>
+                <th scope="col">Preis</th>
+                <th scope="col">Einheit</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of products">
+                <td>
+                    <csc-product-type-icon [itemType]="item.itemType" />
+                </td>
+                <th scope="row">{{ item.name }}</th>
+                <td>{{ unitUtils.ToAbbrevation(item.itemUnit) }}</td>
+                <td>{{ item.price | currency }}</td>
+                <td>
+                    <a routerLink="{{ '/product/' + item.id }}" class="btn btn-sm btn-outline-primary"><fa-icon [icon]="faPencil" /></a>
+                    <Button class="btn btn-sm btn-outline-danger"><fa-icon [icon]="faTrash" /></Button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
