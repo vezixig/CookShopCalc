@@ -10,10 +10,11 @@ import { AddProductComponent } from './products/add-product/add-product.componen
 import localeDe from '@angular/common/locales/de';
 import { registerLocaleData } from '@angular/common';
 import { ProductTypeIconComponent } from './products/product-type-icon/product-type-icon.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [AddProductComponent, AppComponent, LandingComponent, ShoppingList, ProductTypeIconComponent],
-    imports: [AppRoutingModule, BrowserModule, FontAwesomeModule, FormsModule],
+    imports: [AppRoutingModule, BrowserModule, FontAwesomeModule, FormsModule, HttpClientModule],
     providers: [
         { provide: LOCALE_ID, useValue: 'de-DE' },
         { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
