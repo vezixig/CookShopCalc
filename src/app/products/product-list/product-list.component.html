@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header bg-tertiary clearfix">
         <div class="float-start">Produktliste</div>
-        <a routerLink="/product/add" type="button" class="btn btn-sm btn-outline-primary float-end">+ NEU</a>
+        <a class="btn btn-sm btn-outline-primary float-end" routerLink="/product/add" type="button">+ NEU</a>
     </div>
     <input type="text" [(ngModel)]="listFilter" />
     <table class="table">
@@ -16,15 +16,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of products">
+            <tr *ngFor="let item of productList | async">
                 <td>
-                    <csc-product-type-icon [itemType]="item.itemType" />
+                    <csc-category-icon [category]="item.category" />
                 </td>
                 <th scope="row">{{ item.name }}</th>
                 <td>{{ unitUtils.ToAbbrevation(item.itemUnit) }}</td>
                 <td>{{ item.price | currency }}</td>
                 <td>
-                    <a routerLink="{{ '/product/' + item.id }}" class="btn btn-sm btn-outline-primary"><fa-icon [icon]="faPencil" /></a>
+                    <a class="btn btn-sm btn-outline-primary" routerLink="{{ '/product/' + item.id }}"><fa-icon [icon]="faPencil" /></a>
                     <Button class="btn btn-sm btn-outline-danger"><fa-icon [icon]="faTrash" /></Button>
                 </td>
             </tr>

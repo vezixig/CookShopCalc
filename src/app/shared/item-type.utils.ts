@@ -1,41 +1,42 @@
 import { IconDefinition, faAppleWhole, faCarrot } from '@fortawesome/free-solid-svg-icons';
-import { ItemType } from 'src/enums/ItemType';
+import { throwError } from 'rxjs';
+import { Category } from 'src/enums/Category';
 
-export class ItemTypeUtils {
-    static ToColor(itemType: ItemType): string {
-        switch (itemType) {
-            case ItemType.Fruit:
+export class CategoryUtils {
+    static ToColor(category: Category): string {
+        switch (category) {
+            case Category.Fruit:
                 return 'FireBrick';
-            case ItemType.Vegetable:
+            case Category.Vegetable:
                 return 'ForestGreen';
             default:
-                throw 'Argument out of range.';
+                throw new Error('Argument category is out of range.');
         }
     }
 
-    static ToDescription(itemType: ItemType): string {
-        switch (itemType) {
-            case ItemType.Fruit:
+    static ToDescription(category: Category): string {
+        switch (category) {
+            case Category.Fruit:
                 return 'Obst';
-            case ItemType.Vegetable:
+            case Category.Vegetable:
                 return 'Gemüse';
             default:
-                throw 'Argument out of range.';
+                throw new Error('Argument category is out of range.');
         }
     }
 
-    static ToIcon(itemType: ItemType): IconDefinition {
-        switch (itemType) {
-            case ItemType.Fruit:
+    static ToIcon(category: Category): IconDefinition {
+        switch (category) {
+            case Category.Fruit:
                 return faAppleWhole;
-            case ItemType.Vegetable:
+            case Category.Vegetable:
                 return faCarrot;
             default:
-                throw 'Argument out of range.';
+                throw new Error('Argument category is out of range.');
         }
     }
 
-    static ToString(itemType: ItemType): string {
-        return ItemType[itemType];
+    static ToString(category: Category): string {
+        return Category[category];
     }
 }

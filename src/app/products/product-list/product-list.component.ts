@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { UnitUtils } from 'src/app/shared/unit.utils';
 import { Item } from 'src/models/Item';
 import { ProductsService } from '../products.service';
@@ -11,7 +11,7 @@ import { ProductsService } from '../products.service';
     styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit, OnDestroy {
-    private _getProductsSubscription!: Subscription;
+    productList!: Observable<Item[]>;
 
     faPencil = faPencil;
     faTrash = faTrash;
@@ -20,10 +20,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
     products: Item[] = [];
 
     constructor(private _productService: ProductsService) {}
-    ngOnDestroy(): void {
-        this._getProductsSubscription.unsubscribe();
-    }
+    ngOnDestroy(): void {}
     ngOnInit(): void {
-        this._getProductsSubscription = this._productService.getProducts().subscribe({ next: (products) => (this.products = products) });
+        this.productList = this._productService.getProducts();
     }
 }

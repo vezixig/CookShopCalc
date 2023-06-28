@@ -1,11 +1,11 @@
-import { ItemType } from 'src/enums/ItemType';
+import { Category } from 'src/enums/Category';
 import { Unit } from 'src/enums/Unit';
 
 declare type Item = {
     id: number;
     name: string;
     itemUnit: Unit;
-    itemType: ItemType;
+    category: Category;
     price: number;
     priceUnit: Unit;
 };

@@ -1,9 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ItemType } from 'src/enums/ItemType';
-import { Unit } from 'src/enums/Unit';
 import { ShoppingListItem } from 'src/models/ShoppingListItem';
 import { faTrash, faCheck } from '@fortawesome/free-solid-svg-icons';
-import { ItemTypeUtils } from '../../shared/item-type.utils';
+import { CategoryUtils } from '../../shared/item-type.utils';
 import { ShoppingListService as ShoppingService } from '../shopping.service';
 import { Subscription } from 'rxjs';
 
@@ -16,7 +14,7 @@ export class ShoppingList implements OnInit, OnDestroy {
     faCheck = faCheck;
     faTrash = faTrash;
     isListCollapsed = false;
-    itemTypeUtils = ItemTypeUtils;
+    categoryUtils = CategoryUtils;
     items: ShoppingListItem[] = [];
     filteredItems: ShoppingListItem[] = [];
     testData: any[] = [];

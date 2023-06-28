@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
-import { ItemType } from 'src/enums/ItemType';
+import { Category } from 'src/enums/Category';
 import { Unit } from 'src/enums/Unit';
 import { ShoppingListItem } from 'src/models/ShoppingListItem';
 
@@ -11,10 +11,10 @@ import { ShoppingListItem } from 'src/models/ShoppingListItem';
 export class ShoppingListService {
     getShoppingListItems(): ShoppingListItem[] {
         return [
-            new ShoppingListItem(0, 'Banane', 1, Unit.Piece, ItemType.Fruit, 13.37, Unit.Kilogram),
-            new ShoppingListItem(1, 'Wassermelone', 1, Unit.Piece, ItemType.Fruit, 13.37, Unit.Kilogram),
-            new ShoppingListItem(2, 'Tomate', 3, Unit.Piece, ItemType.Vegetable, 13.37, Unit.Kilogram),
-            new ShoppingListItem(3, 'Schlangengurke', 1, Unit.Piece, ItemType.Vegetable, 13.37, Unit.Kilogram),
+            new ShoppingListItem(0, 'Banane', 1, Unit.Piece, Category.Fruit, 13.37, Unit.Kilogram),
+            new ShoppingListItem(1, 'Wassermelone', 1, Unit.Piece, Category.Fruit, 13.37, Unit.Kilogram),
+            new ShoppingListItem(2, 'Tomate', 3, Unit.Piece, Category.Vegetable, 13.37, Unit.Kilogram),
+            new ShoppingListItem(3, 'Schlangengurke', 1, Unit.Piece, Category.Vegetable, 13.37, Unit.Kilogram),
         ];
     }
 

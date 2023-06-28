@@ -1,13 +1,13 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ProductListComponent } from './product-list/product-list.component';
 import { ProductComponent } from './product/product.component';
-import { ProductTypeIconComponent } from './product-type-icon/product-type-icon.component';
+import { CategoryItemComponent } from './category-icon/category-icon.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductGuard } from './product.guard';
+import { ProductListComponent } from './product-list/product-list.component';
 
 const childRoutes: Routes = [
     { path: 'products', component: ProductListComponent },
@@ -16,8 +16,8 @@ const childRoutes: Routes = [
 ];
 
 @NgModule({
-    declarations: [ProductComponent, ProductListComponent, ProductTypeIconComponent],
+    declarations: [ProductComponent, CategoryItemComponent, ProductListComponent],
     imports: [CommonModule, FontAwesomeModule, FormsModule, HttpClientModule, RouterModule.forChild(childRoutes)],
-    exports: [ProductTypeIconComponent],
+    exports: [CategoryItemComponent],
 })
 export class ProductsModule {}

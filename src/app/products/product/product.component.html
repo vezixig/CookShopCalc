@@ -4,34 +4,38 @@
     </div>
 
     <div class="container">
-        <form>
+        <form #form="ngForm" ngNativeValidate (ngSubmit)="handleSubmit(form)">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="inputName" aria-describedby="nameHelp" />
-                <label for="inputName" class="form-label">Produktname</label>
-                <div id="nameHelp" class="form-text">Eine kurze Bezeichnung für das Produkt</div>
+                <input class="form-control" id="inputName" name="name" minlength="3" required type="text" [(ngModel)]="product.name" #nameField="ngModel" aria-describedby="nameHelp" />
+                <label class="form-label" for="inputName">Produktname</label>
+                <div class="text-danger" [hidden]="nameField.valid || nameField.untouched">Bitte eine Bezeichnung mit min. drei Zeichen eingeben.</div>
+                <div class="form-text" id="nameHelp">Eine kurze Bezeichnung für das Produkt</div>
             </div>
 
             <div class="form-floating mb-3">
-                <select class="form-select" id="selectItemType" aria-label="Floating label select example">
-                    <option *ngFor="let itemType of itemTypeValues" selected>{{ itemTypeUtils.ToDescription(itemType) }}</option>
+                <select class="form-select" name="category" id="selectCategory" [(ngModel)]="product.category" aria-label="Die Kategorie der das Produkt zugeordnet ist">
+                    <option *ngFor="let category of categoryValues" value="{{ category }}">{{ categoryUtils.ToDescription(category) }}</option>
                 </select>
-                <label for="selectItemType">Kategorie</label>
+                <label for="selectCategory">Kategorie</label>
             </div>
 
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="inputPrice" aria-describedby="priceHelp" />
-                <label for="inputPrice" class="form-label">Preis</label>
-                <div id="priceHelp" class="form-text">Der Preis des Produktes pro Einheit</div>
+                <input class="form-control" name="price" id="inputPrice" [(ngModel)]="product.price" step=".01" type="number" min="0" aria-describedby="priceHelp" />
+                <label class="form-label" for="inputPrice">Preis</label>
+                <div class="form-text" id="priceHelp">Der Preis des Produktes pro Einheit</div>
             </div>
 
             <div class="form-floating mb-3">
-                <select class="form-select" id="selectPriceUnit" aria-label="Floating label select example">
-                    <option *ngFor="let unit of unitValues" selected>{{ unitUtils.ToAbbrevation(unit) }}</option>
+                <select class="form-select" name="priceUnit" id="selectPriceUnit" [(ngModel)]="product.priceUnit" aria-label="Die Einheit in der das Produkt gekauft werden kann">
+                    <option *ngFor="let unit of unitValues" value="{{ unit }}">{{ unitUtils.ToAbbrevation(unit) }}</option>
                 </select>
                 <label for="selectPriceUnit">Einheit</label>
             </div>
 
-            <button type="submit" class="btn btn-primary">Anlegen</button>
+            <button class="btn btn-primary" type="submit">Anlegen</button>
+            <button class="btn btn-outline-danger" type="reset">Zurücksetzen</button>
         </form>
+
+        {{ product | json }}
     </div>
 </div>

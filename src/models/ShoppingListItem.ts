@@ -1,23 +1,23 @@
-import { ItemType } from 'src/enums/ItemType';
+import { Category } from 'src/enums/Category';
 import { Unit } from 'src/enums/Unit';
 import { Item } from './Item';
 
 export class ShoppingListItem implements Item {
-    private _amount: number = 0;
-    private _price: number = 0;
+    private _amount = 0;
+    private _price = 0;
 
     public name: string;
     public itemUnit: Unit;
-    public itemType: ItemType;
+    public category: Category;
     public priceUnit: Unit;
     private _id: number;
 
-    public constructor(id: number, name: string, amount: number, itemUnit: Unit, itemType: ItemType, price: number, priceUnit: Unit) {
+    public constructor(id: number, name: string, amount: number, itemUnit: Unit, category: Category, price: number, priceUnit: Unit) {
         this._id = id;
         this.amount = amount;
         this.name = name;
         this.itemUnit = itemUnit;
-        this.itemType = itemType;
+        this.category = category;
         this.price = price;
         this.priceUnit = priceUnit;
     }
